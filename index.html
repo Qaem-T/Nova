@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NOVA</title>
+    <link rel="icon" href="assets/imgs/logo.png" />
+
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-CfCrinSRH2IR6a4e6fy2q6ioOX7O6Mtm1L9vRvFZ1trBncWmMePhzvafv7oIcWiW"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- style -->
+    <link rel="stylesheet" href="assets/css/Variables.css" />
+    <link rel="stylesheet" href="assets/css/Main.css" />
+    <link rel="stylesheet" href="assets/css/Responsive.css" />
+  </head>
+
+  <body>
+    <!-- s navbar -->
+    <nav class="nBar d-flex align-items-center">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- burger menu -->
+          <button
+            class="col menuBtn d-flex justify-content-start align-items-center d-lg-none"
+          >
+            <svg viewBox="0 0 1024 1024" fill="currentColor">
+              <path
+                d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
+          </button>
+
+          <!-- meno -->
+          <ul
+            class="nav d-none d-lg-flex col-lg-4 order-lg-1 align-items-center listNav"
+          >
+            <li class="nav-item">
+              <a href="" class="nav-link text-secondary">محصولات</a>
+            </li>
+            <li class="nav-item">
+              <a href="#aboutUs" class="nav-link text-secondary">درباره ما</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contactUs" class="nav-link text-secondary">تماس باما</a>
+            </li>
+          </ul>
+
+          <!-- logo -->
+          <div
+            class="col navLogo d-flex justify-content-center order-lg-0 col-lg-2 px-lg-0 justify-content-lg-start"
+          >
+            <a href="index.html">
+              <img src="assets/imgs/logo.png" alt="Logo Nova" />
+            </a>
+          </div>
+
+          <!-- search button -->
+          <button
+            class="d-lg-none col searhBtn d-flex justify-content-end align-items-center order-lg-2"
+          >
+            <svg fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+              />
+            </svg>
+          </button>
+
+          <!-- search box -->
+          <div class="searchBox col-lg-4 order-lg-2 d-none d-lg-flex">
+            <div class="searchIcon">
+              <svg fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                />
+              </svg>
+            </div>
+            <input class="inputSearch" type="text" placeholder="جستجو..." />
+          </div>
+
+          <!-- shopingCard & accont buttons -->
+          <div class="col-lg-2 order-lg-3 d-none d-lg-flex justify-content-end">
+            <button class="shopingCartBtn text-dark">
+              <div class="position-relative">
+                <svg viewBox="0 0 640 640">
+                  <path
+                    fill="currentColor"
+                    d="M256 128L256 192L384 192L384 128C384 92.7 355.3 64 320 64C284.7 64 256 92.7 256 128zM224 224L144 224C135.2 224 128 231.2 128 240L128 448C128 483.3 156.7 512 192 512L448 512C483.3 512 512 483.3 512 448L512 240C512 231.2 504.8 224 496 224L416 224L416 304C416 312.8 408.8 320 400 320C391.2 320 384 312.8 384 304L384 224L256 224L256 304C256 312.8 248.8 320 240 320C231.2 320 224 312.8 224 304L224 224zM224 192L224 128C224 75 267 32 320 32C373 32 416 75 416 128L416 192L496 192C522.5 192 544 213.5 544 240L544 448C544 501 501 544 448 544L192 544C139 544 96 501 96 448L96 240C96 213.5 117.5 192 144 192L224 192z"
+                  />
+                </svg>
+                <div
+                  class="badge bg-danger position-absolute translate-middle top-100 start-0 rounded-pill"
+                >
+                  0
+                </div>
+              </div>
+            </button>
+            <button
+              class="acontBtn text-dark"
+              data-bs-toggle="modal"
+              data-bs-target="#accontManage"
+            >
+              <svg viewBox="0 0 640 640">
+                <path
+                  fill="currentColor"
+                  d="M224 192C224 139 267 96 320 96C373 96 416 139 416 192C416 245 373 288 320 288C267 288 224 245 224 192zM448 192C448 121.3 390.7 64 320 64C249.3 64 192 121.3 192 192C192 262.7 249.3 320 320 320C390.7 320 448 262.7 448 192zM128 544C128 464.5 192.5 400 272 400L368 400C447.5 400 512 464.5 512 544L512 560C512 568.8 519.2 576 528 576C536.8 576 544 568.8 544 560L544 544C544 446.8 465.2 368 368 368L272 368C174.8 368 96 446.8 96 544L96 560C96 568.8 103.2 576 112 576C120.8 576 128 568.8 128 560L128 544z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- accont manage -->
+    <div class="modal fade" id="accontManage" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered justify-content-center">
+        <div class="modal-content">
+          <div class="login-container">
+            <div class="login-header">
+              <h1>ورود به حساب کاربری</h1>
+            </div>
+
+            <form class="login-form">
+              <div class="input-group mb-1">
+                <label for="username">نام کاربری</label>
+                <input
+                  type="text"
+                  id="username"
+                  placeholder="نام کاربری خود را وارد کنید"
+                />
+                <small class="username_msg d-none"></small>
+              </div>
+
+              <div class="input-group position-relative">
+                <label for="password">رمز عبور</label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="رمز عبور خود را وارد کنید"
+                />
+                <div class="showAndHidePass">
+                  <svg
+                    fill="currentColor"
+                    class="bi bi-eye-slash"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"
+                    />
+                    <path
+                      d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"
+                    />
+                    <path
+                      d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"
+                    />
+                  </svg>
+                </div>
+                <small class="password_msg d-none"></small>
+              </div>
+
+              <button type="submit" class="login-button">ورود</button>
+
+              <div class="d-flex justify-content-between">
+                <a href="#" class="forgotPass-createAccont"
+                  >رمز عبور خود را فراموش کرده اید؟</a
+                >
+                <a href="#" class="forgotPass-createAccont">ایجاد حساب</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- e navbar  -->
+
+    <!-- s header  -->
+    <header>
+      <div class="container">
+        <div class="d-flex flex-column h-100">
+          <!-- header tytel  -->
+          <div class="h-tytle h-50 textObserv">
+            <div>
+              <span>با</span>
+              <h1 class="d-inline-block">نوا</h1>
+            </div>
+            <p class="m-0">لحظات خاصی رو تجربه کنید</p>
+          </div>
+
+          <!-- header text and btn  -->
+          <div class="h-textBtn h-50 textObserv">
+            <div class="h-50">
+              <p class="mt-4">
+                قهوه تازه با عطر و طعمی که هر لحظه رو خاص میکنه
+              </p>
+            </div>
+
+            <a href="#productBox" class="h-showMenu-btn"> مشاهده منو </a>
+          </div>
+
+          <button class="shopCard-btn d-lg-none">
+            <div class="position-relative">
+              <svg viewBox="0 0 640 640">
+                <path
+                  fill="#ffffff"
+                  d="M256 144L256 192L384 192L384 144C384 108.7 355.3 80 320 80C284.7 80 256 108.7 256 144zM208 240L144 240L144 448C144 474.5 165.5 496 192 496L448 496C474.5 496 496 474.5 496 448L496 240L432 240L432 296C432 309.3 421.3 320 408 320C394.7 320 384 309.3 384 296L384 240L256 240L256 296C256 309.3 245.3 320 232 320C218.7 320 208 309.3 208 296L208 240zM208 192L208 144C208 82.1 258.1 32 320 32C381.9 32 432 82.1 432 144L432 192L496 192C522.5 192 544 213.5 544 240L544 448C544 501 501 544 448 544L192 544C139 544 96 501 96 448L96 240C96 213.5 117.5 192 144 192L208 192z"
+                />
+              </svg>
+              <div
+                class="badge bg-danger position-absolute translate-middle top-100 start-0 rounded-pill"
+              >
+                0
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- e header  -->
+
+    <!-- s section  -->
+    <section class="py-5">
+      <div>
+        <!--popular offers-->
+        <div class="popularOffers">
+          <div class="container d-flex mb-3 popularOffers-tytle">
+            <!--tytle-->
+            <div>
+              <svg
+                width="25"
+                fill="#dfa35e"
+                class="bi bi-stars"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"
+                />
+              </svg>
+            </div>
+            <span class="ms-1 fw-bolder">پیشنهاد های محبوب ما</span>
+          </div>
+          <!-- cards -->
+          <div class="popularOfferBoxParent">
+            <div class="hidenPopularCard"></div>
+            <div
+              class="popularOfferBox d-flex gap-3 gap-md-4"
+              id="popularOffersBox"
+            >
+              <!-- <div class="popularOfferCard shadow">
+                            <div>
+                                <img src="assets/imgs/Product-1.jpg" alt="">
+                            </div>
+                            <div>
+                                <span class="small fw-bolder">کیک شکلاتی</span>
+                                <p class="small">کیک شکلاتی با لایه کاراملی و تیکه های شکلاتی</p>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <span class="price">165.000 تومان</span>
+                            </div>
+                        </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!--category-->
+        <div class="mt-5 container category">
+          <div class="text-center">
+            <!--tytle-->
+            <span class="categoryTytle">دسته بندی</span>
+          </div>
+
+          <!--category Card-->
+          <div class="mt-4 gap-4 row justify-content-center mb-sm-5">
+            <div class="category-item cardObserv">
+              <div class="mt-4">
+                <!--img-->
+                <img src="assets/imgs/Category-1.png" alt="" />
+              </div>
+              <div class="text-center">
+                <!--name-->
+                <span>نوشیدنی گرم</span>
+              </div>
+            </div>
+            <div class="category-item cardObserv">
+              <div>
+                <!--img-->
+                <img src="assets/imgs/Category-2.png" alt="" />
+              </div>
+              <div class="mt-1 text-center">
+                <!--name-->
+                <span>نوشیدنی سرد</span>
+              </div>
+            </div>
+            <div class="category-item cardObserv">
+              <div class="mt-4">
+                <!--img-->
+                <img src="assets/imgs/Category-3.png" alt="" />
+              </div>
+              <div class="mt-1 text-center">
+                <!--name-->
+                <span>دسر</span>
+              </div>
+            </div>
+            <div class="category-item cardObserv">
+              <div class="mt-4">
+                <!--img-->
+                <img src="assets/imgs/Category-4.png" alt="" />
+              </div>
+              <div class="mt-1 text-center">
+                <!--name-->
+                <span>دم نوش</span>
+              </div>
+            </div>
+            <div class="category-item cardObserv">
+              <div>
+                <!--img-->
+                <img src="assets/imgs/Category-5.png" alt="" />
+              </div>
+              <div class="mt-1 text-center">
+                <!--name-->
+                <span>قهوه اماده</span>
+              </div>
+            </div>
+            <div class="category-item cardObserv">
+              <div>
+                <!--img-->
+                <img src="assets/imgs/Category-6.png" alt="" />
+              </div>
+              <div class="mt-1 text-center">
+                <!--name-->
+                <span>پودر قهوه</span>
+              </div>
+            </div>
+            <div class="category-item cardObserv">
+              <div class="mt-4">
+                <!--img-->
+                <img src="assets/imgs/Category-7.png" alt="" />
+              </div>
+              <div class="mt-1 text-center">
+                <!--name-->
+                <span>لوازم جانبی</span>
+              </div>
+            </div>
+            <div class="category-item cardObserv">
+              <div class="mt-4">
+                <!--img-->
+                <img src="assets/imgs/Category-8.png" alt="" />
+              </div>
+              <div class="mt-1 text-center">
+                <!--name-->
+                <span>دانه قهوه</span>
+              </div>
+            </div>
+            <div class="category-item cardObserv">
+              <div>
+                <!--img-->
+                <img src="assets/imgs/Category-9.png" alt="" />
+              </div>
+              <div class="mt-1 text-center">
+                <!--name-->
+                <span>دستگاه ها</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- products -->
+        <div class="container mt-5 products py-5 rounded-5">
+          <div id="productBox" class="row gap-4 justify-content-evenly">
+            <div
+              class="productCart rounded-4 shadow cardObserv col-12 col-sm-5"
+            >
+              <div class="rounded-5">
+                <!--img-->
+                <img src="assets/imgs/Product-1.jpg" alt="" />
+              </div>
+              <!-- info  -->
+              <div class="d-flex flex-column p-2">
+                <div class="h-75">
+                  <div class="mt-2">
+                    <!--name-->
+                    <h5 class="fs-6 fw-bolder">کیک شکلاتی</h5>
+                  </div>
+                  <div class="small mt-4 descriptionProductCard">
+                    <!--description-->
+                    <p>کیک شکلاتی با لایه کاراملی و تیکه های شکلات</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-end h-25 align-items-center">
+                  <!--price-->
+                  <span class="fw-bolder">165.000تومان</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="productCart rounded-4 shadow cardObserv col-12 col-sm-5"
+            >
+              <div class="rounded-5">
+                <!--img-->
+                <img src="assets/imgs/Product-1.jpg" alt="" />
+              </div>
+              <!-- info  -->
+              <div class="d-flex flex-column p-2">
+                <div class="h-75">
+                  <div class="mt-2">
+                    <!--name-->
+                    <h5 class="fs-6 fw-bolder">کیک شکلاتی</h5>
+                  </div>
+                  <div class="small mt-4 descriptionProductCard">
+                    <!--description-->
+                    <p>کیک شکلاتی با لایه کاراملی و تیکه های شکلات</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-end h-25 align-items-center">
+                  <!--price-->
+                  <span class="fw-bolder">165.000تومان</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--pages-->
+        <div class="container h-25 py-4">
+          <div class="d-flex justify-content-center gap-1" id="pages"></div>
+        </div>
+      </div>
+    </section>
+    <!-- e section  -->
+
+    <footer>
+      <div class="f-logo">
+        <img src="assets/imgs/logo.png" alt="" />
+      </div>
+      <!--footer content-->
+      <div class="pt-5" id="contactUs">
+        <div class="container">
+          <!--social media-->
+          <div class="d-flex justify-content-center align-items-end pt-5 gap-3">
+            <a class="socialMediaIco telegram-ico" href="">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
+              </svg>
+            </a>
+            <a class="socialMediaIco instagram-ico" href="">
+              <svg fill="#ffffff" class="bi bi-instagram" viewBox="0 0 16 16">
+                <path
+                  d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                />
+              </svg>
+            </a>
+            <a class="socialMediaIco facebook-ico" href="">
+              <svg viewBox="0 0 640 640">
+                <path
+                  fill="#ffffff"
+                  d="M240 363.3L240 576L356 576L356 363.3L442.5 363.3L460.5 265.5L356 265.5L356 230.9C356 179.2 376.3 159.4 428.7 159.4C445 159.4 458.1 159.8 465.7 160.6L465.7 71.9C451.4 68 416.4 64 396.2 64C289.3 64 240 114.5 240 223.4L240 265.5L174 265.5L174 363.3L240 363.3z"
+                />
+              </svg>
+            </a>
+            <a class="socialMediaIco linkedin-ico" href="">
+              <svg viewBox="0 0 640 640">
+                <path
+                  fill="#74C0FC"
+                  d="M196.3 512L103.4 512L103.4 212.9L196.3 212.9L196.3 512zM149.8 172.1C120.1 172.1 96 147.5 96 117.8C96 103.5 101.7 89.9 111.8 79.8C121.9 69.7 135.6 64 149.8 64C164 64 177.7 69.7 187.8 79.8C197.9 89.9 203.6 103.6 203.6 117.8C203.6 147.5 179.5 172.1 149.8 172.1zM543.9 512L451.2 512L451.2 366.4C451.2 331.7 450.5 287.2 402.9 287.2C354.6 287.2 347.2 324.9 347.2 363.9L347.2 512L254.4 512L254.4 212.9L343.5 212.9L343.5 253.7L344.8 253.7C357.2 230.2 387.5 205.4 432.7 205.4C526.7 205.4 544 267.3 544 347.7L544 512L543.9 512z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <!-- address  -->
+          <div class="f-address text-white py-5">
+            <div class="d-flex justify-content-center">
+              <a href="">www.novacofe.com</a>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-chrome"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="4" />
+                <line x1="21.17" y1="8" x2="12" y2="8" />
+                <line x1="3.95" y1="6.06" x2="8.54" y2="14" />
+                <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
+              </svg>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+              <address class="small">
+                تهران, خیابان ولیعصر, نبش خیابان دولت, کافه نوا
+              </address>
+              <svg viewBox="0 0 640 640">
+                <path
+                  fill="#ffffff"
+                  d="M176 252.6C176 175.7 239.7 112 320 112C400.3 112 464 175.7 464 252.6C464 298.2 440.2 354.1 405.1 409.7C376.8 454.5 344.1 494.5 320 521.8C295.9 494.5 263.3 454.6 234.9 409.7C199.8 354.2 176 298.2 176 252.6zM320 64C214 64 128 148.4 128 252.6C128 371.9 248.2 514.9 298.4 569.4C310.2 582.2 329.8 582.2 341.6 569.4C391.8 514.9 512 371.9 512 252.6C512 148.4 426 64 320 64zM288 256C288 238.3 302.3 224 320 224C337.7 224 352 238.3 352 256C352 273.7 337.7 288 320 288C302.3 288 288 273.7 288 256zM400 256C400 211.8 364.2 176 320 176C275.8 176 240 211.8 240 256C240 300.2 275.8 336 320 336C364.2 336 400 300.2 400 256z"
+                />
+              </svg>
+            </div>
+            <div class="d-flex justify-content-center">
+              <samp>۰۲۱-۱۲۳۴۵۶۷۸</samp>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-phone"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- about us -->
+        <div class="aboutUs d-flex align-items-end">
+          <div>
+            <p class="mb-md-3" id="aboutUs">
+              کافه نوا از سال ۱۳۹۸ با عشق به قهوه و خلق لحظات خوب شروع به کار
+              کرد و امروز تلاش می‌کنیم با کیفیت، آرامش و طعمی ماندگار، هر فنجان
+              را به تجربه‌ای خاص تبدیل کنیم.
+            </p>
+            <span class="small"> © ۱۴۰۵ کافه نوا — تمامی حقوق محفوظ است. </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- js -->
+    <script src="assets/js/App.js"></script>
+    <script src="assets/js/animetion.js"></script>
+  </body>
+</html>

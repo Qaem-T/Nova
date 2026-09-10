@@ -1,0 +1,320 @@
+/* ≥ 576px */
+@media (min-width: 576px) {
+
+    /* s header  */
+    header {
+        background-position: 88% 60%;
+    }
+
+    .h-tytle {
+        font-size: 42px;
+    }
+
+    .h-tytle h1 {
+        font-size: 58px;
+    }
+
+    .h-textBtn p {
+        font-size: 17px;
+    }
+
+    .h-textBtn a {
+        padding: 10px 35px;
+    }
+
+    /* e header  */
+    /* s papular offer  */
+    .popularOfferBox {
+        padding: 1.5rem;
+    }
+
+    .popularOffers-tytle svg {
+        width: 30px;
+    }
+
+    .popularOffers-tytle span {
+        font-size: 18px;
+    }
+
+    .popularOfferCard span {
+        font-size: 16px !important;
+        font-weight: 600;
+    }
+
+    .popularOfferCard p {
+        font-size: 14px;
+    }
+
+    /* e papular offer  */
+
+    /* s category  */
+    .categoryTytle {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .category-item {
+        width: 150px;
+        height: 190px;
+        padding: 10px;
+    }
+
+    .category-item img {
+        width: 126px;
+    }
+
+    /* e category  */
+    /* s products  */
+
+    .productCart img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .productCart h5 {
+        font-size: 15px !important;
+    }
+
+    .productCart p {
+        font-size: 14px !important;
+    }
+
+    .productCart span {
+        font-size: 14px;
+    }
+
+    /* e products  */
+
+    /* s footer  */
+    .aboutUs {
+        padding-bottom: 5px;
+        height: 300px;
+        width: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../imgs/cofe.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #fff;
+        text-align: center;
+    }
+
+    /* e footer  */
+
+    /* start product html */
+    .colorBgProduct {
+        background-color: rgb(255, 219, 190);
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .productContainer {
+        padding: 20px 0;
+    }
+
+    .imgProduct img {
+        width: 90%;
+    }
+
+    .infoProduct {
+        justify-content: center;
+    }
+
+    .btnAdd {
+        padding: 3px 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btnAdd svg,
+    .btnReducing svg {
+        width: 19px;
+    }
+
+    .btnReducing {
+        padding: 3px 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .addToShopingCard {
+        padding: 5px 15px;
+    }
+
+    /* end product html */
+}
+
+
+/* ≥ 768px */
+@media (min-width: 768px) {
+    header {
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../imgs/bgHero-lg.png');
+        background-position: 53% 60%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .h-tytle {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: start;
+    }
+
+    .h-textBtn p {
+        text-align: start;
+    }
+
+    .h-textBtn a {
+        align-self: self-start;
+    }
+
+    nav {
+        height: 80px;
+    }
+
+    .navLogo img {
+        width: 110px;
+    }
+
+    .listNav a {
+        font-weight: 600;
+    }
+
+    .listNav a:hover {
+        color: var(--color-main) !important;
+    }
+
+    .searchBox {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 45px;
+    }
+
+    .searchIcon {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(-20%, -51%);
+        background-color: var(--color-main);
+        padding: 10px 10px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        cursor: pointer;
+    }
+
+    .searchIcon svg {
+        width: 25px;
+        color: white;
+    }
+
+    .inputSearch {
+        color: gray;
+        width: 100%;
+        height: 100%;
+        padding: 3px 0;
+        padding-right: 50px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        outline: none;
+    }
+
+    .shopingCartBtn svg,
+    .acontBtn svg {
+        width: 30px;
+    }
+
+    .shopingCartBtn {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        transition-duration: 0.1s;
+        padding-top: 5px;
+    }
+
+    .shopingCartBtn:hover {
+        color: var(--color-main) !important;
+    }
+
+    .acontBtn {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        transition-duration: 0.1s;
+        margin-right: 20px;
+    }
+
+    .acontBtn:hover {
+        color: var(--color-main) !important;
+    }
+
+    .aboutUs {
+        height: 500px;
+        padding: 20px 50px;
+        text-align: center;
+    }
+
+    /* start product html */
+    .imgProduct {
+        padding: 50px 0 40px;
+    }
+
+    .imgProduct img {
+        width: 85%;
+    }
+
+    .infoProduct h2 {
+        font-size: 22px;
+    }
+
+    .infoProduct p {
+        font-size: large;
+        margin: 40px 0;
+    }
+
+    .infoProduct span {
+        font-size: 18px;
+    }
+
+    .total {
+        font-size: large;
+        padding: 5px 15px;
+    }
+
+    .btnAdd {
+        padding: 6px 8px;
+    }
+
+    .btnAdd svg,
+    .btnReducing svg {
+        width: 20px;
+    }
+
+    .btnReducing {
+        padding: 6px 8px;
+    }
+
+    .addToShopingCard {
+        padding: 5px 20px;
+    }
+
+    /* end product html */
+}
+
+
+/* ≥ 992px */
+@media (min-width: 992px) {
+    .aboutUs {
+        text-align: start ;
+    }
+}
+
+
+/* ≥ 1200px */
+@media (min-width: 1200px) {}
+
+
+/* ≥ 1400px */
+@media (min-width: 1400px) {}
