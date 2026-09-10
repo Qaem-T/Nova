@@ -168,6 +168,83 @@ async function initApp() {
     }
 
 
+    // burger Menu 
+    const nBar = document.querySelector('.nBar');
+    const outBurgerMenu = document.getElementById('outBurgerMenu');
+    const burgerMenu = document.getElementById('burgerMenu');
+    const btnBurgerMenu = document.getElementById('btnBurgerMenu');
+    const closeBurgerMenuBtn = document.getElementById('closeBurgerMenuBtn');
+
+    let startX = 0;
+    let isDragging = false;
+
+    // open burger menu
+    btnBurgerMenu.addEventListener('click', () => {
+    outBurgerMenu.classList.add('active');
+    nBar.classList.add('d-none');
+    burgerMenu.classList.add('burgerMenuShow');
+    });
+
+    // close
+    function closeBurgerMenu() {
+    outBurgerMenu.classList.remove('active');
+    nBar.classList.remove('d-none');
+    burgerMenu.classList.remove('burgerMenuShow');
+    burgerMenu.style.transform = '';
+    burgerMenu.style.transition = '';
+    }
+
+    // click out menu for close menu
+    outBurgerMenu.addEventListener('click', (e) => {
+    if (e.target === outBurgerMenu) closeBurgerMenu();
+    });
+
+    // cloase btn menu
+    closeBurgerMenuBtn.addEventListener('click', closeBurgerMenu);
+
+
+    burgerMenu.addEventListener('pointerdown', (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    burgerMenu.setPointerCapture(e.pointerId);
+    burgerMenu.style.transition = 'none';
+    });
+
+    burgerMenu.addEventListener('pointermove', (e) => {
+    if (!isDragging) return;
+
+    const deltaX = e.clientX - startX;
+    const width = burgerMenu.offsetWidth;
+
+    let percent = (deltaX / width) * 100;
+    percent = Math.max(0, Math.min(100, percent));
+
+    burgerMenu.style.transform = `translateX(${percent}%)`;
+    });
+
+    burgerMenu.addEventListener('pointerup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+
+    burgerMenu.style.transition = 'transform 0.3s ease';
+
+    const currentPercent = getTranslateXPercent(burgerMenu, burgerMenu.offsetWidth);
+
+    if (currentPercent > 50) {
+        closeBurgerMenu();
+    } else {
+        burgerMenu.style.transform = 'translateX(0)';
+    }
+    });
+
+    function getTranslateXPercent(el, width) {
+    const matrix = getComputedStyle(el).transform;
+    if (matrix === 'none') return 0;
+    const px = parseFloat(matrix.match(/matrix.*\((.+)\)/)[1].split(', ')[4]);
+    return (px / width) * 100;
+    }
+
+
     loadProducts();
     createBtnPages();
     loadPopularOffers();

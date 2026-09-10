@@ -32,6 +32,7 @@
         <div class="row align-items-center">
           <!-- burger menu -->
           <button
+            id="btnBurgerMenu"
             class="col menuBtn d-flex justify-content-start align-items-center d-lg-none"
           >
             <svg viewBox="0 0 1024 1024" fill="currentColor">
@@ -121,6 +122,107 @@
         </div>
       </div>
     </nav>
+
+    <!-- burger menu content  -->
+    <div class="outBurgerMenu" id="outBurgerMenu">
+      <div class="burgerMenu shadow" id="burgerMenu">
+        <div class="burgerMenu-containe">
+          <div class="burgerMenu-logo d-flex justify-content-center">
+            <img src="assets/imgs/logo.png" alt="nova logo" />
+          </div>
+
+          <hr />
+
+          <div>
+            <ul class="nav flex-column burgerMenu-list">
+              <li class="nav-item">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-caret-left-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
+                  />
+                </svg>
+                <a href="" class="nav-link text-dark">خانه</a>
+              </li>
+              <li class="nav-item">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-caret-left-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
+                  />
+                </svg>
+                <a href="" class="nav-link text-dark">محصولات</a>
+              </li>
+              <li class="nav-item">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-caret-left-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
+                  />
+                </svg>
+                <a href="" class="nav-link text-dark">ورود و ثبت نام</a>
+              </li>
+              <li class="nav-item">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-caret-left-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
+                  />
+                </svg>
+                <a href="" class="nav-link text-dark">درباره ما</a>
+              </li>
+              <li class="nav-item">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-caret-left-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
+                  />
+                </svg>
+                <a href="" class="nav-link text-dark">تماس با ما</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- close btn  -->
+        <button id="closeBurgerMenuBtn">
+          <svg
+            fill="currentColor"
+            class="bi bi-caret-right-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
 
     <!-- accont manage -->
     <div class="modal fade" id="accontManage" tabindex="-1">
