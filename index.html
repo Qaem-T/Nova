@@ -68,6 +68,7 @@
 
           <!-- search button -->
           <button
+            id="searchBtn"
             class="d-lg-none col searhBtn d-flex justify-content-end align-items-center order-lg-2"
           >
             <svg fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -147,7 +148,7 @@
                     d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
                   />
                 </svg>
-                <a href="" class="nav-link text-dark">خانه</a>
+                <a href="index.html" class="nav-link text-dark">خانه</a>
               </li>
               <li class="nav-item">
                 <svg
@@ -221,6 +222,23 @@
             />
           </svg>
         </button>
+      </div>
+    </div>
+
+    <!-- search btn  -->
+    <div class="searchs d-none">
+      <div class="searchBoxResponsive">
+        <input type="text">
+        <div>
+          <svg fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+          </svg>
+        </div>
+      </div>
+      <span>موارد جستجو</span>
+      <hr>
+      <div class="">
+
       </div>
     </div>
 
@@ -353,7 +371,6 @@
           </div>
           <!-- cards -->
           <div class="popularOfferBoxParent">
-            <div class="hidenPopularCard"></div>
             <div
               class="popularOfferBox d-flex gap-3 gap-md-4"
               id="popularOffersBox"

@@ -245,6 +245,16 @@ async function initApp() {
     }
 
 
+    // searchs 
+    // elements 
+    const searchs = document.querySelector('.searchs');
+    const searchBtn = document.getElementById('searchBtn');
+
+    searchBtn.addEventListener('click', e => {
+        searchs.classList.remove('d-none');
+    });
+
+
     loadProducts();
     createBtnPages();
     loadPopularOffers();
