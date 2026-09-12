@@ -250,6 +250,8 @@ async function initApp() {
     const searchs = document.querySelector('.searchs');
     const searchBtn = document.getElementById('searchBtn');
     const closeSearchBoxResponsive = document.querySelector('.closeSearchBoxResponsive');
+    const searchValue = document.getElementById('searchValue');
+    const SearchingBtn = document.querySelector('.SearchingBtn');
 
     let isSearchBoxOpen = false;
 
@@ -278,6 +280,12 @@ async function initApp() {
         isSearchBoxOpen = false;
         searchs.classList.add('d-none');
         history.back();
+    }
+
+    // Searching 
+    const Searching = ()=> {
+        const value = searchValue.value;
+        
     }
 
     // events 
