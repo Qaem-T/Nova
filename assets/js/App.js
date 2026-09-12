@@ -249,11 +249,47 @@ async function initApp() {
     // elements 
     const searchs = document.querySelector('.searchs');
     const searchBtn = document.getElementById('searchBtn');
+    const closeSearchBoxResponsive = document.querySelector('.closeSearchBoxResponsive');
 
-    searchBtn.addEventListener('click', e => {
+    let isSearchBoxOpen = false;
+
+    // open search Box 
+    const openSearchBox = ()=> {
+        if (isSearchBoxOpen) return;
+
+        isSearchBoxOpen = true;
         searchs.classList.remove('d-none');
-    });
 
+        history.pushState({searchBox : true}, '', '#search');
+    }
+
+    // close search Box with btn
+    const closeSearch = ()=> {
+        if (!isSearchBoxOpen) return;
+
+        isSearchBoxOpen = false;
+        searchs.classList.add('d-none');
+    }
+
+    // close search Box with history 
+    const closeSearchBoxWithHistory = ()=> {
+        if (!isSearchBoxOpen) return;
+
+        isSearchBoxOpen = false;
+        searchs.classList.add('d-none');
+        history.back();
+    }
+
+    // events 
+    searchBtn.addEventListener('click', openSearchBox);
+    closeSearchBoxResponsive.addEventListener('click', closeSearchBoxWithHistory);
+
+    window.addEventListener('popstate' , e => {
+        if (isSearchBoxOpen){
+            closeSearch();
+        }
+
+    });
 
     loadProducts();
     createBtnPages();
