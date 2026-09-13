@@ -256,6 +256,11 @@
         text-align: center;
     }
 
+    /* nav is always visible on desktop, auto-hide is a mobile-only behaviour */
+    nav.nav-hidden {
+        transform: translateY(0);
+    }
+
     /* start product html */
     .imgProduct {
         padding: 50px 0 40px;
@@ -274,7 +279,7 @@
         margin: 40px 0;
     }
 
-    .infoProduct span {
+    .infoProduct .productPrice {
         font-size: 18px;
     }
 
@@ -307,7 +312,7 @@
 /* ≥ 992px */
 @media (min-width: 992px) {
     .aboutUs {
-        text-align: start ;
+        text-align: start;
     }
 }
 

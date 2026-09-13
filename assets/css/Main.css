@@ -1,4 +1,6 @@
-/* Font  */
+/* =========================================================
+   Font
+========================================================= */
 @font-face {
   font-family: Sahel;
   src: url("../font/sahel/Sahel.eot");
@@ -29,7 +31,9 @@
   font-weight: 900;
 }
 
-/* style main  */
+/* =========================================================
+   Base
+========================================================= */
 * {
   margin: 0;
   padding: 0;
@@ -40,32 +44,38 @@ body {
   font-family: "Sahel", sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  background-color: #fff;
 }
 
-/* componnet  */
-/* .textObserv {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 0.5s;
+a {
+  text-decoration: none;
 }
 
-.textObserv.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* keep space for the fixed nav so content never hides under it */
+main,
+.colorBgProduct {
+  scroll-margin-top: 70px;
 }
 
+/* =========================================================
+   Scroll reveal animations (used by animetion.js)
+========================================================= */
+.textObserv,
 .cardObserv {
   opacity: 0;
-  transform: translateY(50px);
-  transition: 0.5s;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+.textObserv.visible,
 .cardObserv.visible {
   opacity: 1;
   transform: translateY(0);
-} */
+}
 
-/* s navBar  */
+/* =========================================================
+   Nav bar
+========================================================= */
 nav {
   position: fixed;
   top: 0;
@@ -75,18 +85,13 @@ nav {
   height: 60px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  z-index: 5;
+  z-index: 20;
+  transition: transform 0.35s ease, opacity 0.35s ease;
 }
 
-/* .nBar {
-  opacity: 0;
-  transform: translateY(-50px);
-  transition: 0.5s;
-} */
-
-.nBar.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* hidden state added/removed by animetion.js on scroll */
+nav.nav-hidden {
+  transform: translateY(-100%);
 }
 
 .menuBtn {
@@ -104,6 +109,10 @@ nav {
   width: 90px;
 }
 
+.listNav a.active {
+  color: var(--color-main) !important;
+}
+
 .searhBtn {
   background-color: transparent;
   border: 0;
@@ -115,7 +124,9 @@ nav {
   color: var(--color-main);
 }
 
-/* burger menu  */
+/* =========================================================
+   Burger menu
+========================================================= */
 .outBurgerMenu {
   width: 100%;
   height: 100vh;
@@ -130,7 +141,7 @@ nav {
 
 .outBurgerMenu.active {
   opacity: 1;
-  z-index: 5;
+  z-index: 25;
 }
 
 .burgerMenu {
@@ -159,7 +170,7 @@ nav {
   width: 140px;
 }
 
-.burgerMenu-list li{
+.burgerMenu-list li {
   display: flex;
   justify-content: start;
   align-items: center;
@@ -167,6 +178,19 @@ nav {
   margin: 0.3rem 0;
   background-color: var(--color-bgNav);
   border-radius: 15px;
+}
+
+.burgerMenu-list a {
+  width: 100%;
+  padding: 10px 8px;
+}
+
+.burgerMenu-list li.active {
+  background-color: var(--color-main);
+}
+
+.burgerMenu-list li.active a {
+  color: #fff !important;
 }
 
 #closeBurgerMenuBtn {
@@ -180,7 +204,9 @@ nav {
   height: 30px;
 }
 
-/* searchs */
+/* =========================================================
+   Mobile search panel
+========================================================= */
 .searchs {
   position: fixed;
   top: 0;
@@ -188,8 +214,9 @@ nav {
   width: 100%;
   height: 100vh;
   background-color: #fff;
-  z-index: 5;
+  z-index: 25;
   padding: 2rem 1rem;
+  overflow-y: auto;
 }
 
 .searchBoxResponsive {
@@ -218,6 +245,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .searchBoxResponsive svg {
@@ -231,16 +259,76 @@ nav {
   width: 40px;
   height: 40px;
   margin-top: 85%;
+  cursor: pointer;
 }
 
-/* e navBar  */
+/* search result rows (mobile + desktop share the same markup) */
+.searchResultItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 4px;
+  cursor: pointer;
+  border-radius: 10px;
+}
 
-/* s manage accont  */
+.searchResultItem:hover {
+  background-color: var(--color-bgNav);
+}
+
+.searchResultItem img {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.searchResultItem .searchResultInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchResultItem .searchResultInfo span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.searchResultItem .searchResultInfo small {
+  color: var(--color-price);
+}
+
+.searchEmptyMsg {
+  color: gray;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* desktop search results dropdown */
+.searchBox {
+  position: relative;
+}
+
+.searchResultsDesktop {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  left: 0;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+  padding: 0.5rem;
+  z-index: 30;
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+/* =========================================================
+   Manage account (login) modal
+========================================================= */
 .login-container {
   background-color: var(--color-bgNav);
   padding: 30px;
   border-radius: 10px;
-  /* width: 350px; */
   text-align: center;
 }
 
@@ -281,6 +369,10 @@ nav {
   border-color: var(--color-main);
 }
 
+.login-form input.is-invalid {
+  border-color: var(--color-danger);
+}
+
 .showAndHidePass {
   position: absolute;
   top: 55%;
@@ -309,6 +401,11 @@ nav {
   background-color: #c08c51;
 }
 
+.username_msg,
+.password_msg {
+  color: var(--color-danger);
+}
+
 .forgotPass-createAccont {
   margin-top: 15px;
   display: block;
@@ -320,9 +417,10 @@ nav {
 .forgotPass-createAccont:hover {
   text-decoration: underline;
 }
-/* e manage accont  */
 
-/* s header  */
+/* =========================================================
+   Header / hero
+========================================================= */
 header {
   width: 100%;
   min-height: 100vh;
@@ -378,6 +476,11 @@ header.container {
   border-radius: 10px;
   background-color: var(--color-main);
   color: white;
+  transition: background-color 0.25s ease;
+}
+
+.h-textBtn a:hover {
+  background-color: #c08c51;
 }
 
 .shopCard-btn {
@@ -390,20 +493,17 @@ header.container {
   position: fixed;
   bottom: 2.5rem;
   right: 2rem;
-  opacity: 0;
-  transform: translateX(50px);
-  transition: 0.8s;
-  z-index: 4;
+  transition: 0.3s;
+  z-index: 15;
 }
 
-.shopCard-btn.visible {
-  opacity: 1;
-  transform: translateY(0);
+.shopCard-btn:active {
+  transform: scale(0.92);
 }
 
-/* e header  */
-
-/* s papular offer  */
+/* =========================================================
+   Popular offers
+========================================================= */
 .popularOfferBoxParent {
   position: relative;
 }
@@ -412,6 +512,7 @@ header.container {
   overflow-x: scroll;
   background-color: var(--color-main);
   padding: 1rem;
+  scroll-behavior: smooth;
 }
 
 .popularOfferCard {
@@ -421,12 +522,19 @@ header.container {
   background-color: var(--color-bgNav);
   border-radius: 20px;
   cursor: pointer;
+  flex: 0 0 auto;
+  transition: transform 0.2s ease;
+}
+
+.popularOfferCard:hover {
+  transform: translateY(-4px);
 }
 
 .popularOfferCard img {
   border-radius: 20px;
   width: 190px;
   height: 185px;
+  object-fit: cover;
 }
 
 .popularOfferCard p {
@@ -434,9 +542,9 @@ header.container {
   margin: 10px 0;
 }
 
-/* e papular offer  */
-
-/* s category  */
+/* =========================================================
+   Category
+========================================================= */
 .category-item {
   width: 100px;
   height: 140px;
@@ -447,15 +555,29 @@ header.container {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.category-item:hover {
+  transform: translateY(-3px);
+}
+
+.category-item.active {
+  background-color: var(--color-main);
+}
+
+.category-item.active span {
+  color: #fff;
+  font-weight: 700;
 }
 
 .category-item img {
   width: 85px;
 }
 
-/* e category  */
-
-/* s products  */
+/* =========================================================
+   Products
+========================================================= */
 .productCart {
   background-color: var(--color-bgNav);
   display: flex;
@@ -467,6 +589,7 @@ header.container {
   width: 160px;
   height: 160px;
   border-radius: 15px;
+  object-fit: cover;
 }
 
 .productCart p {
@@ -485,9 +608,26 @@ header.container {
   text-overflow: ellipsis;
 }
 
-/* e products  */
+.productsEmptyState {
+  width: 100%;
+  text-align: center;
+  color: gray;
+  padding: 3rem 0;
+}
 
-/* s pages  */
+.productsEmptyState button {
+  margin-top: 1rem;
+  border: 0;
+  background-color: var(--color-main);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   Pagination
+========================================================= */
 .page {
   background-color: var(--color-main);
   width: 45px;
@@ -508,27 +648,23 @@ header.container {
 }
 
 .pageMore {
-  background-color: var(--color-main);
-  width: 45px;
+  background-color: transparent;
+  width: 30px;
   height: 45px;
   border-radius: 15px;
   border: 0;
-  color: white;
+  color: var(--color-main);
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
   font-size: x-large;
   font-weight: 600;
-  width: 30px;
-  background-color: transparent;
-  color: var(--color-main);
-  align-items: end;
   cursor: default;
 }
 
-/* e pages  */
-
-/* s footer  */
+/* =========================================================
+   Footer
+========================================================= */
 footer {
   margin-top: 6rem;
   position: relative;
@@ -562,6 +698,11 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.socialMediaIco:hover {
+  transform: translateY(-3px);
 }
 
 .socialMediaIco svg {
@@ -609,9 +750,9 @@ footer {
   text-align: center;
 }
 
-/* e footer  */
-
-/* start product html */
+/* =========================================================
+   Product detail page
+========================================================= */
 .productContainer {
   margin-top: 40px;
 }
@@ -628,6 +769,7 @@ footer {
 .imgProduct img {
   width: 80%;
   border-radius: 20px;
+  object-fit: cover;
 }
 
 .infoProduct {
@@ -635,7 +777,7 @@ footer {
   flex-direction: column;
 }
 
-.infoProduct h5 {
+.infoProduct h2 {
   font-size: larger;
   font-weight: 600;
 }
@@ -646,33 +788,39 @@ footer {
   margin: 20px 0;
 }
 
-.infoProduct span {
+.infoProduct .productPrice {
   font-size: large;
   font-weight: 600;
   text-align: end;
+  color: var(--color-price);
 }
 
 .total {
   padding: 5px 10px;
+  font-weight: 600;
 }
 
-.btnAdd {
-  background-color: var(--color-main);
-  border-radius: 5px;
-  padding: 4px 6px;
-  cursor: pointer;
-}
-
-.btnAdd svg,
-.btnReducing svg {
-  width: 20px;
-}
-
+.btnAdd,
 .btnReducing {
   background-color: var(--color-main);
   border-radius: 5px;
   padding: 4px 6px;
   cursor: pointer;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnAdd:disabled,
+.btnReducing:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btnAdd svg,
+.btnReducing svg {
+  width: 20px;
 }
 
 .addToShopingCard {
@@ -681,6 +829,126 @@ footer {
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  border: 0;
+  transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
-/* end product html */
+.addToShopingCard:hover {
+  background-color: #c08c51;
+}
+
+.addToShopingCard:active {
+  transform: scale(0.97);
+}
+
+.addToShopingCard.added {
+  background-color: var(--color-success);
+}
+
+/* =========================================================
+   Shopping cart offcanvas
+========================================================= */
+.cartOffcanvas .offcanvas-header {
+  background-color: var(--color-bgNav);
+}
+
+.cartItem {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cartItem img {
+  width: 65px;
+  height: 65px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.cartItem .cartItemInfo {
+  flex-grow: 1;
+}
+
+.cartItem .cartItemInfo h6 {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.cartItem .cartItemQty {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cartItem .cartItemQty button {
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 6px;
+  background-color: var(--color-main);
+  color: #fff;
+  cursor: pointer;
+}
+
+.cartRemoveBtn {
+  border: 0;
+  background: transparent;
+  color: var(--color-danger);
+  cursor: pointer;
+}
+
+.cartEmptyMsg {
+  text-align: center;
+  color: gray;
+  padding: 2rem 0;
+}
+
+.cartTotalRow {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  padding: 10px 0;
+}
+
+.checkoutBtn {
+  width: 100%;
+  border: 0;
+  background-color: var(--color-main);
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.checkoutBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   Toast (small feedback messages, e.g. "added to cart")
+========================================================= */
+.novaToastContainer {
+  position: fixed;
+  bottom: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+}
+
+.novaToast {
+  background-color: var(--color-price);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.novaToast.show {
+  opacity: 1;
+}

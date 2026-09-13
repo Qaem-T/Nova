@@ -2,4 +2,10 @@
   --color-main: #dfa35e;
   --color-bgNav: #fff2e2;
   --color-price: #2b1b12;
+
+  /* added tokens used by cart / toast / states */
+  --color-danger: #dc3545;
+  --color-success: #2f9e44;
+  --color-border: #e9dcc9;
+  --shadow-soft: 0 4px 18px rgba(43, 27, 18, 0.08);
 }

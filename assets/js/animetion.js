@@ -1,43 +1,45 @@
-// "use strict";
+"use strict";
 
-// // Elements 
-// const navBar = document.querySelectorAll('.nBar');
-// const shopCardBtn = document.querySelectorAll('.shopCard-btn');
-// const textObserv = document.querySelectorAll('.textObserv');
+/* =========================================================
+   NOVA — small scroll-driven animations
+   1. Auto-hide the nav bar on scroll down, show it on scroll up
+      (only visually active on mobile, see nav.nav-hidden override
+      in Responsive.css for the ≥768px breakpoint)
+   2. Fade/slide-in reveal for elements already in the page
+      (hero text, static category cards). Elements that App.js
+      creates dynamically — product cards, popular offer cards —
+      register themselves for the same effect from App.js directly.
+========================================================= */
 
-// // stat Auto-hide navigation: hide on scroll down, show on scroll up
-// let lastScrollY = window.scrollY;
+// ---------- 1. Auto-hide nav on scroll ----------
+const nav = document.querySelector("nav");
+let lastScrollY = window.scrollY;
 
-// window.addEventListener('scroll', () => {
-//     const currentScrollY = window.scrollY;
- 
-//     if (currentScrollY <= 0) {
-//         navBar[0].classList.add('visible');
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!nav) return;
+    const currentScrollY = window.scrollY;
 
-//     } else if (currentScrollY > lastScrollY) {
-//         navBar[0].classList.remove('visible');
+    if (currentScrollY <= 0) {
+      nav.classList.remove("nav-hidden");
+    } else if (currentScrollY > lastScrollY) {
+      nav.classList.add("nav-hidden");
+    } else {
+      nav.classList.remove("nav-hidden");
+    }
 
-//     } else if (currentScrollY < lastScrollY) {
-//         navBar[0].classList.add('visible');
-//     }
- 
-//     lastScrollY = currentScrollY;
-// }, { passive: true });
-// // end Auto-hide navigation 
+    lastScrollY = currentScrollY;
+  },
+  { passive: true }
+);
 
-// // s observer 
-// const observer = new IntersectionObserver(entries => {
-//     entries.forEach(entry => {
-//         if (entry.isIntersecting) {
-//             entry.target.classList.add('visible');
-//             observer.unobserve(entry.target); // بعد از یک بار دیده شدن نیازی به observe موندن نیست
-//         }
-//     });
-// }, { threshold: 0 });
- 
-// const observeAll = elements => elements.forEach(el => observer.observe(el));
-// // e observer 
+// ---------- 2. Reveal elements that exist at initial page load ----------
+const initialRevealElements = document.querySelectorAll(".textObserv, .cardObserv");
 
-// observeAll(navBar);
-// observeAll(shopCardBtn);
-// observeAll(textObserv);
+// observeRevealElements() is defined in App.js, which is loaded before this file
+if (typeof observeRevealElements === "function") {
+  observeRevealElements(initialRevealElements);
+} else {
+  initialRevealElements.forEach((el) => el.classList.add("visible"));
+}

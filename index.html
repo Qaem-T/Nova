@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NOVA</title>
+    <title>NOVA | کافه و فروشگاه قهوه</title>
     <link rel="icon" href="assets/imgs/logo.png" />
 
     <!-- bootstrap -->
@@ -42,12 +42,12 @@
             </svg>
           </button>
 
-          <!-- meno -->
+          <!-- menu -->
           <ul
             class="nav d-none d-lg-flex col-lg-4 order-lg-1 align-items-center listNav"
           >
             <li class="nav-item">
-              <a href="" class="nav-link text-secondary">محصولات</a>
+              <a href="#productBox" class="nav-link text-secondary">محصولات</a>
             </li>
             <li class="nav-item">
               <a href="#aboutUs" class="nav-link text-secondary">درباره ما</a>
@@ -66,7 +66,7 @@
             </a>
           </div>
 
-          <!-- search button -->
+          <!-- search button (mobile) -->
           <button
             id="searchBtn"
             class="d-lg-none col searhBtn d-flex justify-content-end align-items-center order-lg-2"
@@ -78,7 +78,7 @@
             </svg>
           </button>
 
-          <!-- search box -->
+          <!-- search box (desktop) -->
           <div class="searchBox col-lg-4 order-lg-2 d-none d-lg-flex">
             <div class="searchIcon">
               <svg fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -87,12 +87,24 @@
                 />
               </svg>
             </div>
-            <input class="inputSearch" type="text" placeholder="جستجو..." />
+            <input
+              id="desktopSearchInput"
+              class="inputSearch"
+              type="text"
+              placeholder="جستجو..."
+              autocomplete="off"
+            />
+            <!-- filled live by App.js as the user types -->
+            <div id="desktopSearchResults" class="searchResultsDesktop d-none"></div>
           </div>
 
           <!-- shopingCard & accont buttons -->
           <div class="col-lg-2 order-lg-3 d-none d-lg-flex justify-content-end">
-            <button class="shopingCartBtn text-dark">
+            <button
+              class="shopingCartBtn text-dark"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#cartOffcanvas"
+            >
               <div class="position-relative">
                 <svg viewBox="0 0 640 640">
                   <path
@@ -101,7 +113,7 @@
                   />
                 </svg>
                 <div
-                  class="badge bg-danger position-absolute translate-middle top-100 start-0 rounded-pill"
+                  class="badge bg-danger position-absolute translate-middle top-100 start-0 rounded-pill cartCountBadge"
                 >
                   0
                 </div>
@@ -137,74 +149,40 @@
           <div>
             <ul class="nav flex-column burgerMenu-list">
               <li class="nav-item">
-                <svg
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-caret-left-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
-                  />
+                <svg width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                  <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
                 </svg>
                 <a href="index.html" class="nav-link text-dark">خانه</a>
               </li>
               <li class="nav-item">
-                <svg
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-caret-left-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
-                  />
+                <svg width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                  <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
                 </svg>
-                <a href="" class="nav-link text-dark">محصولات</a>
+                <a href="#productBox" class="nav-link text-dark">محصولات</a>
               </li>
               <li class="nav-item">
-                <svg
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-caret-left-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
-                  />
+                <svg width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                  <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
                 </svg>
-                <a href="" class="nav-link text-dark">ورود و ثبت نام</a>
+                <a
+                  href="#"
+                  class="nav-link text-dark"
+                  data-bs-toggle="modal"
+                  data-bs-target="#accontManage"
+                  >ورود و ثبت نام</a
+                >
               </li>
               <li class="nav-item">
-                <svg
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-caret-left-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
-                  />
+                <svg width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                  <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
                 </svg>
-                <a href="" class="nav-link text-dark">درباره ما</a>
+                <a href="#aboutUs" class="nav-link text-dark">درباره ما</a>
               </li>
               <li class="nav-item">
-                <svg
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-caret-left-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
-                  />
+                <svg width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                  <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
                 </svg>
-                <a href="" class="nav-link text-dark">تماس با ما</a>
+                <a href="#contactUs" class="nav-link text-dark">تماس با ما</a>
               </li>
             </ul>
           </div>
@@ -212,11 +190,7 @@
 
         <!-- close btn  -->
         <button id="closeBurgerMenuBtn">
-          <svg
-            fill="currentColor"
-            class="bi bi-caret-right-fill"
-            viewBox="0 0 16 16"
-          >
+          <svg fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
             <path
               d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"
             />
@@ -225,10 +199,10 @@
       </div>
     </div>
 
-    <!-- search btn  -->
+    <!-- mobile search panel  -->
     <div class="searchs d-none">
       <div class="searchBoxResponsive">
-        <input id="searchValue" type="text" placeholder="جستجو ..." />
+        <input id="searchValue" type="text" placeholder="جستجو ..." autocomplete="off" />
         <div class="SearchingBtn">
           <svg fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path
@@ -239,16 +213,11 @@
       </div>
       <hr />
       <div>
-        <ul id="resultsFoundInSearchs">
-          <!-- <li class="py-2"></li> -->
-        </ul>
+        <!-- filled live by App.js as the user types -->
+        <ul id="resultsFoundInSearchs" class="list-unstyled"></ul>
       </div>
       <div class="closeSearchBoxResponsive">
-        <svg
-          fill="currentColor"
-          class="bi bi-arrow-right-circle-fill"
-          viewBox="0 0 16 16"
-        >
+        <svg fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
           <path
             d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
           />
@@ -265,30 +234,18 @@
               <h1>ورود به حساب کاربری</h1>
             </div>
 
-            <form class="login-form">
+            <form class="login-form" novalidate>
               <div class="input-group mb-1">
                 <label for="username">نام کاربری</label>
-                <input
-                  type="text"
-                  id="username"
-                  placeholder="نام کاربری خود را وارد کنید"
-                />
+                <input type="text" id="username" placeholder="نام کاربری خود را وارد کنید" />
                 <small class="username_msg d-none"></small>
               </div>
 
               <div class="input-group position-relative">
                 <label for="password">رمز عبور</label>
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="رمز عبور خود را وارد کنید"
-                />
+                <input type="password" id="password" placeholder="رمز عبور خود را وارد کنید" />
                 <div class="showAndHidePass">
-                  <svg
-                    fill="currentColor"
-                    class="bi bi-eye-slash"
-                    viewBox="0 0 16 16"
-                  >
+                  <svg fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
                     <path
                       d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"
                     />
@@ -306,14 +263,30 @@
               <button type="submit" class="login-button">ورود</button>
 
               <div class="d-flex justify-content-between">
-                <a href="#" class="forgotPass-createAccont"
-                  >رمز عبور خود را فراموش کرده اید؟</a
-                >
+                <a href="#" class="forgotPass-createAccont">رمز عبور خود را فراموش کرده اید؟</a>
                 <a href="#" class="forgotPass-createAccont">ایجاد حساب</a>
               </div>
             </form>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- shopping cart offcanvas -->
+    <div class="offcanvas offcanvas-end cartOffcanvas" tabindex="-1" id="cartOffcanvas">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">سبد خرید</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <!-- filled live by App.js whenever the cart is opened -->
+        <div id="cartOffcanvasBody" class="flex-grow-1"></div>
+
+        <div class="cartTotalRow">
+          <span>جمع کل</span>
+          <span><span id="cartTotalPrice">0</span> تومان</span>
+        </div>
+        <button type="button" class="checkoutBtn" id="checkoutBtn" disabled>ثبت سفارش</button>
       </div>
     </div>
     <!-- e navbar  -->
@@ -334,15 +307,17 @@
           <!-- header text and btn  -->
           <div class="h-textBtn h-50 textObserv">
             <div class="h-50">
-              <p class="mt-4">
-                قهوه تازه با عطر و طعمی که هر لحظه رو خاص میکنه
-              </p>
+              <p class="mt-4">قهوه تازه با عطر و طعمی که هر لحظه رو خاص میکنه</p>
             </div>
 
             <a href="#productBox" class="h-showMenu-btn"> مشاهده منو </a>
           </div>
 
-          <button class="shopCard-btn d-lg-none">
+          <button
+            class="shopCard-btn d-lg-none"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#cartOffcanvas"
+          >
             <div class="position-relative">
               <svg viewBox="0 0 640 640">
                 <path
@@ -351,7 +326,7 @@
                 />
               </svg>
               <div
-                class="badge bg-danger position-absolute translate-middle top-100 start-0 rounded-pill"
+                class="badge bg-danger position-absolute translate-middle top-100 start-0 rounded-pill cartCountBadge"
               >
                 0
               </div>
@@ -362,214 +337,90 @@
     </header>
     <!-- e header  -->
 
-    <!-- s section  -->
-    <section class="py-5">
-      <div>
-        <!--popular offers-->
-        <div class="popularOffers">
-          <div class="container d-flex mb-3 popularOffers-tytle">
-            <!--tytle-->
-            <div>
-              <svg
-                width="25"
-                fill="#dfa35e"
-                class="bi bi-stars"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"
-                />
-              </svg>
+    <main>
+      <!-- s section  -->
+      <section class="py-5">
+        <div>
+          <!--popular offers-->
+          <div class="popularOffers">
+            <div class="container d-flex mb-3 popularOffers-tytle">
+              <!--tytle-->
+              <div>
+                <svg width="25" fill="#dfa35e" class="bi bi-stars" viewBox="0 0 16 16">
+                  <path
+                    d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"
+                  />
+                </svg>
+              </div>
+              <span class="ms-1 fw-bolder">پیشنهاد های محبوب ما</span>
             </div>
-            <span class="ms-1 fw-bolder">پیشنهاد های محبوب ما</span>
-          </div>
-          <!-- cards -->
-          <div class="popularOfferBoxParent">
-            <div
-              class="popularOfferBox d-flex gap-3 gap-md-4"
-              id="popularOffersBox"
-            >
-              <!-- <div class="popularOfferCard shadow">
-                            <div>
-                                <img src="assets/imgs/Product-1.jpg" alt="">
-                            </div>
-                            <div>
-                                <span class="small fw-bolder">کیک شکلاتی</span>
-                                <p class="small">کیک شکلاتی با لایه کاراملی و تیکه های شکلاتی</p>
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <span class="price">165.000 تومان</span>
-                            </div>
-                        </div> -->
+            <!-- cards: filled live by App.js -->
+            <div class="popularOfferBoxParent">
+              <div class="popularOfferBox d-flex gap-3 gap-md-4" id="popularOffersBox"></div>
             </div>
-          </div>
-        </div>
-
-        <!--category-->
-        <div class="mt-5 container category">
-          <div class="text-center">
-            <!--tytle-->
-            <span class="categoryTytle">دسته بندی</span>
           </div>
 
-          <!--category Card-->
-          <div class="mt-4 gap-4 row justify-content-center mb-sm-5">
-            <div class="category-item cardObserv">
-              <div class="mt-4">
-                <!--img-->
-                <img src="assets/imgs/Category-1.png" alt="" />
-              </div>
-              <div class="text-center">
-                <!--name-->
-                <span>نوشیدنی گرم</span>
-              </div>
+          <!--category-->
+          <div class="mt-5 container category">
+            <div class="text-center">
+              <!--tytle-->
+              <span class="categoryTytle">دسته بندی</span>
             </div>
-            <div class="category-item cardObserv">
-              <div>
-                <!--img-->
-                <img src="assets/imgs/Category-2.png" alt="" />
+
+            <!--category Card: clicking filters the product grid below by category-->
+            <div class="mt-4 gap-4 row justify-content-center mb-sm-5">
+              <div class="category-item cardObserv" data-category="Hot-drink">
+                <div class="mt-4"><img src="assets/imgs/Category-1.png" alt="نوشیدنی گرم" /></div>
+                <div class="text-center"><span>نوشیدنی گرم</span></div>
               </div>
-              <div class="mt-1 text-center">
-                <!--name-->
-                <span>نوشیدنی سرد</span>
+              <div class="category-item cardObserv" data-category="Cold-drink">
+                <div><img src="assets/imgs/Category-2.png" alt="نوشیدنی سرد" /></div>
+                <div class="mt-1 text-center"><span>نوشیدنی سرد</span></div>
               </div>
-            </div>
-            <div class="category-item cardObserv">
-              <div class="mt-4">
-                <!--img-->
-                <img src="assets/imgs/Category-3.png" alt="" />
+              <div class="category-item cardObserv" data-category="Dessert">
+                <div class="mt-4"><img src="assets/imgs/Category-3.png" alt="دسر" /></div>
+                <div class="mt-1 text-center"><span>دسر</span></div>
               </div>
-              <div class="mt-1 text-center">
-                <!--name-->
-                <span>دسر</span>
+              <div class="category-item cardObserv" data-category="Herbal-tea">
+                <div class="mt-4"><img src="assets/imgs/Category-4.png" alt="دم نوش" /></div>
+                <div class="mt-1 text-center"><span>دم نوش</span></div>
               </div>
-            </div>
-            <div class="category-item cardObserv">
-              <div class="mt-4">
-                <!--img-->
-                <img src="assets/imgs/Category-4.png" alt="" />
+              <div class="category-item cardObserv" data-category="Instant-coffee">
+                <div><img src="assets/imgs/Category-5.png" alt="قهوه آماده" /></div>
+                <div class="mt-1 text-center"><span>قهوه اماده</span></div>
               </div>
-              <div class="mt-1 text-center">
-                <!--name-->
-                <span>دم نوش</span>
+              <div class="category-item cardObserv" data-category="Coffee-powder">
+                <div><img src="assets/imgs/Category-6.png" alt="پودر قهوه" /></div>
+                <div class="mt-1 text-center"><span>پودر قهوه</span></div>
               </div>
-            </div>
-            <div class="category-item cardObserv">
-              <div>
-                <!--img-->
-                <img src="assets/imgs/Category-5.png" alt="" />
+              <div class="category-item cardObserv" data-category="Accessories">
+                <div class="mt-4"><img src="assets/imgs/Category-7.png" alt="لوازم جانبی" /></div>
+                <div class="mt-1 text-center"><span>لوازم جانبی</span></div>
               </div>
-              <div class="mt-1 text-center">
-                <!--name-->
-                <span>قهوه اماده</span>
+              <div class="category-item cardObserv" data-category="Coffee-bean">
+                <div class="mt-4"><img src="assets/imgs/Category-8.png" alt="دانه قهوه" /></div>
+                <div class="mt-1 text-center"><span>دانه قهوه</span></div>
               </div>
-            </div>
-            <div class="category-item cardObserv">
-              <div>
-                <!--img-->
-                <img src="assets/imgs/Category-6.png" alt="" />
-              </div>
-              <div class="mt-1 text-center">
-                <!--name-->
-                <span>پودر قهوه</span>
-              </div>
-            </div>
-            <div class="category-item cardObserv">
-              <div class="mt-4">
-                <!--img-->
-                <img src="assets/imgs/Category-7.png" alt="" />
-              </div>
-              <div class="mt-1 text-center">
-                <!--name-->
-                <span>لوازم جانبی</span>
-              </div>
-            </div>
-            <div class="category-item cardObserv">
-              <div class="mt-4">
-                <!--img-->
-                <img src="assets/imgs/Category-8.png" alt="" />
-              </div>
-              <div class="mt-1 text-center">
-                <!--name-->
-                <span>دانه قهوه</span>
-              </div>
-            </div>
-            <div class="category-item cardObserv">
-              <div>
-                <!--img-->
-                <img src="assets/imgs/Category-9.png" alt="" />
-              </div>
-              <div class="mt-1 text-center">
-                <!--name-->
-                <span>دستگاه ها</span>
+              <div class="category-item cardObserv" data-category="Machines">
+                <div><img src="assets/imgs/Category-9.png" alt="دستگاه ها" /></div>
+                <div class="mt-1 text-center"><span>دستگاه ها</span></div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- products -->
-        <div class="container mt-5 products py-5 px-4 rounded-5">
-          <div id="productBox" class="row gap-4 justify-content-evenly">
-            <div
-              class="productCart rounded-4 shadow cardObserv col-12 col-sm-5"
-            >
-              <div class="rounded-5">
-                <!--img-->
-                <img src="assets/imgs/Product-1.jpg" alt="" />
-              </div>
-              <!-- info  -->
-              <div class="d-flex flex-column p-2">
-                <div class="h-75">
-                  <div class="mt-2">
-                    <!--name-->
-                    <h5 class="fs-6 fw-bolder">کیک شکلاتی</h5>
-                  </div>
-                  <div class="small mt-4 descriptionProductCard">
-                    <!--description-->
-                    <p>کیک شکلاتی با لایه کاراملی و تیکه های شکلات</p>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-end h-25 align-items-center">
-                  <!--price-->
-                  <span class="fw-bolder">165.000تومان</span>
-                </div>
-              </div>
-            </div>
-            <div
-              class="productCart rounded-4 shadow cardObserv col-12 col-sm-5"
-            >
-              <div class="rounded-5">
-                <!--img-->
-                <img src="assets/imgs/Product-1.jpg" alt="" />
-              </div>
-              <!-- info  -->
-              <div class="d-flex flex-column p-2">
-                <div class="h-75">
-                  <div class="mt-2">
-                    <!--name-->
-                    <h5 class="fs-6 fw-bolder">کیک شکلاتی</h5>
-                  </div>
-                  <div class="small mt-4 descriptionProductCard">
-                    <!--description-->
-                    <p>کیک شکلاتی با لایه کاراملی و تیکه های شکلات</p>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-end h-25 align-items-center">
-                  <!--price-->
-                  <span class="fw-bolder">165.000تومان</span>
-                </div>
-              </div>
-            </div>
+          <!-- products: filled live by App.js -->
+          <div class="container mt-5 products py-5 px-4 rounded-5">
+            <div id="productBox" class="row gap-4 justify-content-evenly"></div>
+          </div>
+
+          <!--pages: filled live by App.js -->
+          <div class="container h-25 py-4">
+            <div class="d-flex justify-content-center gap-1" id="pages"></div>
           </div>
         </div>
-
-        <!--pages-->
-        <div class="container h-25 py-4">
-          <div class="d-flex justify-content-center gap-1" id="pages"></div>
-        </div>
-      </div>
-    </section>
-    <!-- e section  -->
+      </section>
+      <!-- e section  -->
+    </main>
 
     <footer>
       <div class="f-logo">
@@ -581,14 +432,7 @@
           <!--social media-->
           <div class="d-flex justify-content-center align-items-end pt-5 gap-3">
             <a class="socialMediaIco telegram-ico" href="">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#ffffff"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
+              <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
               </svg>
             </a>
@@ -621,15 +465,7 @@
           <div class="f-address text-white py-5">
             <div class="d-flex justify-content-center">
               <a href="">https://Qaem-T.github.io/Nova</a>
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#ffffff"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-chrome"
-              >
+              <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chrome">
                 <circle cx="12" cy="12" r="10" />
                 <circle cx="12" cy="12" r="4" />
                 <line x1="21.17" y1="8" x2="12" y2="8" />
@@ -638,9 +474,7 @@
               </svg>
             </div>
             <div class="d-flex justify-content-center mt-3">
-              <address class="small">
-                تهران, خیابان ولیعصر, نبش خیابان دولت, کافه نوا
-              </address>
+              <address class="small">تهران, خیابان ولیعصر, نبش خیابان دولت, کافه نوا</address>
               <svg viewBox="0 0 640 640">
                 <path
                   fill="#ffffff"
@@ -650,15 +484,7 @@
             </div>
             <div class="d-flex justify-content-center">
               <samp>۰۲۱-۱۲۳۴۵۶۷۸</samp>
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#ffffff"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-phone"
-              >
+              <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone">
                 <path
                   d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
                 />
@@ -681,7 +507,7 @@
       </div>
     </footer>
 
-    <!-- js -->
+    <!-- js: App.js must load first, animetion.js relies on a helper it defines -->
     <script src="assets/js/App.js"></script>
     <script src="assets/js/animetion.js"></script>
   </body>
